@@ -1,0 +1,15 @@
+.menu {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .menu-category {
+    margin-bottom: 20px;
+  }
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  h1, h2, h3 {
+    color: #333;
+  }
+  
