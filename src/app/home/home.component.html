@@ -9,15 +9,17 @@
       <img src="assets/images/pizza.jpg" alt="Pizza">
     </div>
   </div>
-  <div class="reviews">
-    <h2>Unsere Google-Bewertungen</h2>
-    <div class="review" *ngFor="let review of reviews">
-      <div class="review-content">
-        <h3>{{review.author_name}}</h3>
-        <p>{{review.text}}</p>
-      </div>
-      <div class="review-rating">
-        <p>Bewertung: {{review.rating}}</p>
+  <div class="container">
+    <div class="reviews">
+      <h2>Unsere Google-Bewertungen</h2>
+      <div class="review" *ngFor="let review of reviews">
+        <div class="review-content">
+          <h3>{{review.author_name}}</h3>
+          <p>{{review.text}}</p>
+        </div>
+        <div class="review-rating">
+          <p>Bewertung: {{review.rating}}</p>
+        </div>
       </div>
     </div>
   </div>
