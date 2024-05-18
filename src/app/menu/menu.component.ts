@@ -77,7 +77,25 @@ export class MenuComponent {
     {position: '46a', name: 'Döner Spezial', priceLittle: '6,50', price: '9,00', priceJumbo: '15,00', priceBig: '25,00', info: 'mit Dönerfleisch, Champignons, Paprika und Zwiebeln' , nutrient: 'A'},
     {position: '46b', name: 'Döner Pita', priceLittle: '6,50', price: '8,50', priceJumbo: '14,00', priceBig: '24,00', info: 'mit Dönerfleisch, Zwiebeln und Sauce-Hollandaise' , nutrient: 'A, B, D, H'}
   ];
-
+  salads = [
+    {position: '47', name: 'Insalata Mista', price: '5,00', info: 'gemischter Salat mit Mais' , nutrient: ''},
+    {position: '48', name: 'Insalata Mista', price: '4,50', info: 'gemischter Salat mit Zwiebeln' , nutrient: ''},
+    {position: '50', name: 'Insalata Di Pomodori', price: '5,00', info: 'Tomalensalat mit Zwiebeln und Essig-Öl' , nutrient: ''},
+    {position: '51', name: 'Insalata Di Cetrioli', price: '4,50', info: 'Gurkensalat' , nutrient: ''},
+    {position: '52', name: 'Insalata Pute', price: '6,00', info: 'gemischter Salat mit Putenfleisch' , nutrient: ''},
+    {position: '52a', name: 'Insalata Pute Spezial', price: '7,00', info: 'gemischter Salat mit Putenfleisch, Käse, Ei und Peperoni' , nutrient: 'D, B', allergen: '1'},
+    {position: '52b', name: 'Insalata Chicken', price: '7,00', info: 'gemischter Salat mit Hähnchenstreifen, Schafskäse, Oliven, Peperoni, Mais und Ei' , nutrient: 'D, 6, B'},
+    {position: '53', name: 'Insalata Nicoise', price: '6,00', info: 'gemischter Salat mit Zwiebeln, Thunfisch und Ei' , nutrient: 'C, B'},
+    {position: '54', name: 'Insalata Pomodori-Schafskäse', price: '6,00', info: 'mit Tomaten, Schafskäse, Zwiebeln und Essig-Öl' , nutrient: 'D'},
+    {position: '56', name: 'Insalata Capricciosa', price: '7,50', info: 'gemischter Salat mit Salami, Formileisch-Vorderschinken, Zwiebeln, Käse, Ei und Thunfisch' , nutrient: '1, 2, 5, B, C, D'},
+    {position: '57', name: 'Insalata Paesana', price: '6,50', info: 'gemischter Salat mit Thunfisch, grünen Bohnen, Zwiebeln und Essig-Öl' , nutrient: 'C'},
+    {position: '58', name: 'Insalata Americana', price: '7,00', info: 'gemischter Salat mit Crevetten, Ananas und Cocktailsauce' , nutrient: '1, 5, F'},
+    {position: '58a', name: 'Insalata Hawaii', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderchinken, Ananas und Cocktailsauce' , nutrient: '1, 2, 5'},
+    {position: '59', name: 'Insalata Mondiale', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Zwiebeln und Käse' , nutrient: '1, 2, 5, D'},
+    {position: '60', name: 'Insalata Ringenberg', price: '7,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Käse, Crevetten grünen Bohnen und Zwiebeln' , nutrient: '1, 2, 5, D, F'},
+    {position: '61', name: 'Insalata Pomodori-Mozzarella', price: '6,00', info: 'mit Mozzarella", Tomaten, Zwiebeln und Essig-Öl' , nutrient: 'D'},
+    {position: '61a', name: 'Insalata Italia', price: '7,00', info: 'mit grünem Salat, Tomaten, Gurken, Oliven, Ei, Formfleisch-Vorderschinken, Schafskäse, Artischocken und Zwiebeln' , nutrient: '2, 5, 6, B, D'},
+  ];
 
   menuCategories: MenuCategory[] = [
     {
@@ -94,8 +112,23 @@ export class MenuComponent {
         ],
         nutrients: pizza.nutrient,
         allergens: pizza.allergen,
-      }))
-    }
+      })),
+    },
+    {
+      name: 'Salate',
+      items: this.salads.map(salad => ({
+        number: parseInt(salad.position),
+        name: salad.name,
+        description: salad.info,
+        sizes: [
+          { name: 'normal', price: `€${salad.price.replace(',', '.')}` }
+        ],
+        nutrients: salad.nutrient,
+        allergens: salad.allergen,
+    })),
+  },
+    
+
       
   ];
 }
