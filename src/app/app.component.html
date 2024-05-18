@@ -1,10 +1,18 @@
-<nav>
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/menu">Menu</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
-    <li><a routerLink="/about">About</a></li>
-    <li><a routerLink="/gallery">Gallery</a></li>
-  </ul>
-</nav>
+<div class="background">
+  <nav>
+    <div routerLink="/" class="logo">
+        <h1>Pizzeria Grewal</h1>
+    </div>
+    <button class="burger-menu" (click)="toggleMenu()">
+      &#9776;
+    </button>
+    <ul [class.active]="menuActive">
+      <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" (click)="closeMenu()">About Us</a></li>
+      <li><a routerLink="/menu" (click)="closeMenu()">Menu</a></li>
+      <li><a routerLink="/gallery" (click)="closeMenu()">Gallery</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
 <router-outlet></router-outlet>
+</div>
