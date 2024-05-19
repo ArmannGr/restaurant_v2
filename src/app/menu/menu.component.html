@@ -1,11 +1,38 @@
-<div class="menu">
-    <h1>Our Menu</h1>
+<div class="container">
+  <div class="menu">
+    <h1>Speisekarte</h1>
     <div class="menu-category" *ngFor="let category of menuCategories">
       <h2>{{ category.name }}</h2>
+      <div *ngIf="category.name === 'Pizza'" class="description">
+        <p>Alle Pizzen mit Tomatensauce, Käse<sup>1,D</sup> und Oregano</p>
+      </div>
+      <div *ngIf="category.name === 'Salate'" class="description">
+        <p>Zu jedem Salat erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
+      </div>
       <div class="menu-item" *ngFor="let item of category.items">
-        <h3>{{ item.name }} - {{ item.price }}</h3>
-        <p>{{ item.description }}</p>
+        <div class="menu-item-details">
+          <div class="menu-item-text">
+            <h3>{{ item.number }}. {{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <div class="allergenDistance">
+              <h6 class="nutrient" *ngIf=item.nutrients>Allergene: {{item.nutrients}}</h6>
+              <h6 style="color: #2c2c2c;"></h6>
+            </div>
+            <div class="nutrientDistance">
+              <h6 *ngIf=item.allergens class="nutrient">Zusatzstoffe: {{item.allergens}}</h6>
+              <h6 style="color: #2c2c2c;"></h6>
+            </div>
+          </div>
+          <div class="menu-item-prices">
+            <div *ngIf="item.sizes">
+              <div class="menu-size" *ngFor="let size of item.sizes">
+                <p *ngIf="size.name != 'normal'">{{ size.name }}: {{ size.price }}</p>
+                <p *ngIf="size.name === 'normal'">{{ size.price }}</p>
+              </div>
+            </div>
+            <p *ngIf="item.price">{{ item.price }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
