@@ -22,10 +22,19 @@ jobs:
       run: npm ci
 
     - name: Build Angular project
-      run: npm run build -- --output-path=dist/restaurant_v2
+      run: npm run build -- --output-path=dist/restaurant_v2 --base-href="/restaurant_v2/"
 
     - name: List dist directory contents
       run: ls -la dist/restaurant_v2
+
+    - name: Clean gh-pages branch
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git checkout --orphan gh-pages
+        git rm -rf .
+        git commit --allow-empty -m "Initial commit"
+        git push origin gh-pages --force
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
