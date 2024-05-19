@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 interface MenuItem {
-  number: number | string;
+  number?: number | string;
   name: string;
   description: string;
   price?: string;
@@ -84,24 +84,137 @@ export class MenuComponent {
     {position: '51', name: 'Insalata Di Cetrioli', price: '4,50', info: 'Gurkensalat' , nutrient: ''},
     {position: '52', name: 'Insalata Pute', price: '6,00', info: 'gemischter Salat mit Putenfleisch' , nutrient: ''},
     {position: '52a', name: 'Insalata Pute Spezial', price: '7,00', info: 'gemischter Salat mit Putenfleisch, Käse, Ei und Peperoni' , nutrient: 'D, B', allergen: '1'},
-    {position: '52b', name: 'Insalata Chicken', price: '7,00', info: 'gemischter Salat mit Hähnchenstreifen, Schafskäse, Oliven, Peperoni, Mais und Ei' , nutrient: 'D, 6, B'},
+    {position: '52b', name: 'Insalata Chicken', price: '7,00', info: 'gemischter Salat mit Hähnchenstreifen, Schafskäse, Oliven, Peperoni, Mais und Ei' , nutrient: 'D, B', allergen: '6'},
     {position: '53', name: 'Insalata Nicoise', price: '6,00', info: 'gemischter Salat mit Zwiebeln, Thunfisch und Ei' , nutrient: 'C, B'},
     {position: '54', name: 'Insalata Pomodori-Schafskäse', price: '6,00', info: 'mit Tomaten, Schafskäse, Zwiebeln und Essig-Öl' , nutrient: 'D'},
-    {position: '56', name: 'Insalata Capricciosa', price: '7,50', info: 'gemischter Salat mit Salami, Formileisch-Vorderschinken, Zwiebeln, Käse, Ei und Thunfisch' , nutrient: '1, 2, 5, B, C, D'},
+    {position: '56', name: 'Insalata Capricciosa', price: '7,50', info: 'gemischter Salat mit Salami, Formileisch-Vorderschinken, Zwiebeln, Käse, Ei und Thunfisch' , nutrient: 'B, C, D', allergen: '1, 2, 5'},
     {position: '57', name: 'Insalata Paesana', price: '6,50', info: 'gemischter Salat mit Thunfisch, grünen Bohnen, Zwiebeln und Essig-Öl' , nutrient: 'C'},
-    {position: '58', name: 'Insalata Americana', price: '7,00', info: 'gemischter Salat mit Crevetten, Ananas und Cocktailsauce' , nutrient: '1, 5, F'},
-    {position: '58a', name: 'Insalata Hawaii', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderchinken, Ananas und Cocktailsauce' , nutrient: '1, 2, 5'},
-    {position: '59', name: 'Insalata Mondiale', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Zwiebeln und Käse' , nutrient: '1, 2, 5, D'},
-    {position: '60', name: 'Insalata Ringenberg', price: '7,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Käse, Crevetten grünen Bohnen und Zwiebeln' , nutrient: '1, 2, 5, D, F'},
+    {position: '58', name: 'Insalata Americana', price: '7,00', info: 'gemischter Salat mit Crevetten, Ananas und Cocktailsauce' , nutrient: 'F', allergen: '1, 5'},
+    {position: '58a', name: 'Insalata Hawaii', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderchinken, Ananas und Cocktailsauce' , nutrient: '', allergen: '1, 2, 5'},
+    {position: '59', name: 'Insalata Mondiale', price: '6,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Zwiebeln und Käse' , nutrient: 'D', allergen: '1, 2, 5'},
+    {position: '60', name: 'Insalata Ringenberg', price: '7,50', info: 'gemischter Salat mit Formfleisch-Vorderschinken, Käse, Crevetten grünen Bohnen und Zwiebeln' , nutrient: 'D, F', allergen: '1, 2, 5'},
     {position: '61', name: 'Insalata Pomodori-Mozzarella', price: '6,00', info: 'mit Mozzarella", Tomaten, Zwiebeln und Essig-Öl' , nutrient: 'D'},
-    {position: '61a', name: 'Insalata Italia', price: '7,00', info: 'mit grünem Salat, Tomaten, Gurken, Oliven, Ei, Formfleisch-Vorderschinken, Schafskäse, Artischocken und Zwiebeln' , nutrient: '2, 5, 6, B, D'},
+    {position: '61a', name: 'Insalata Italia', price: '7,00', info: 'mit grünem Salat, Tomaten, Gurken, Oliven, Ei, Formfleisch-Vorderschinken, Schafskäse, Artischocken und Zwiebeln' , nutrient: 'B, D', allergen: '2, 5, 6'},
   ];
+  antipasta = [
+    {position: '64', name: 'Verdura al Forno', price: '7,00', info: 'Champignons, Broccoli, Spinat, Knoblauch, Sahnesauce und Käse überbacken' , nutrient: 'D', allergen: '1'},
+  ];
+  spaghetti = [
+    {position: '75', name: 'Spaghetti alla Napoletana', price: '5,00', info: 'mit Tomatensauce' , nutrient: 'A'},
+    {position: '76', name: 'Spaghetti Bolognese', price: '6,00', info: 'mit Hackfleischsauce' , nutrient: 'A'},
+    {position: '76a', name: 'Spaghetti Bolognese al Forno', price: '6,50', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '76b', name: 'Spaghetti Broccoli al Forno', price: '7,50', info: 'mit Broccoli, scharfen Peperoni, Knoblauch, Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '78', name: 'Spaghetti Scampi', price: '7,50', info: 'mit Crevetten, Knoblauch und Tomatensauce' , nutrient: 'A, F'},
+    {position: '79', name: 'Spaghetti alla Diavolo', price: '6,50', info: 'mit Formfleisch-Vorderschinken, Paprika, Crevetten und Tomatensauce' , nutrient: 'A, F', allergen: '2, 5'},
+    {position: '80', name: 'Spaghetti Carbonara', price: '6,50', info: 'mit Formfleisch-Vorderschinken, Ei und Käse-Sahnesauce' , nutrient: 'A, B, D', allergen: '1, 2, 5'},
+    {position: '82', name: 'Spaghetti Dello Cheff', price: '7,50', info: 'mit Champignons, Formfleisch-Vorderschinken und Hackfleisch-Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
+    {position: '83', name: 'Spaghetti Frutti di Mare', price: '7,00', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
+  ];
+  maccheroni = [
+    {position: '84', name: 'Makkaroni Bolognese', price: '6,00', info: 'mit Tomatensauce' , nutrient: 'A'},
+    {position: '84a', name: 'Makkaroni Bolognese al Forno', price: '6,50', info: 'mit Hackfleischsauce' , nutrient: 'A'},
+    {position: '84b', name: 'Makkaroni Carbonara', price: '6,00', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '84c', name: 'Makkaroni Broccoli al Forno', price: '7,00', info: 'mit Broccoli, scharfen Peperoni, Knoblauch, Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '85', name: 'Makkaroni Con Mozzarella al Forno', price: '6,50', info: 'mit Crevetten, Knoblauch und Tomatensauce' , nutrient: 'A, F'},
+    {position: '86', name: 'Makkaroni Quattro Formaggi', price: '7,00', info: 'mit Formfleisch-Vorderschinken, Paprika, Crevetten und Tomatensauce' , nutrient: 'A, F', allergen: '2, 5'},
+    {position: '87', name: 'Makkaroni Gratinati al Forno', price: '7,00', info: 'mit Formfleisch-Vorderschinken, Ei und Käse-Sahnesauce' , nutrient: 'A, B, D', allergen: '1, 2, 5'},
+    {position: '88', name: 'Makkaroni all Rudolfo', price: '7,00', info: 'mit Champignons, Formfleisch-Vorderschinken und Hackfleisch-Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
+    {position: '90', name: 'Makkaroni Spinaci', price: '7,50', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
+    {position: '90a', name: 'Makkaroni Spinaci e Salmone', price: '8,00', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
+  ];
+  torrellini = [
+    {position: '92', name: 'Tortellini Bolognese', price: '6,50', info: 'mit Hackfleischsauce' , nutrient: 'A', allergen: '2'},
+    {position: '93', name: 'Tortellini alla Chef', price: '6,50', info: 'mit Formfleisch-Vorderschinken und Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
+    {position: '95', name: 'Tortellini al Forno', price: '7,50', info: 'mit Formfleisch-Vorderschinken, Salami, Tomatensauce und Käse überbacken' , nutrient: 'A, D', allergen: '1, 2, 5'},
+    {position: '96', name: 'Tortellini Quattro Formaggi', price: '7,50', info: 'mit Gorgonzola, Käse, Erbsen und Sahnesauce' , nutrient: 'A, D', allergen: '1, 2'},
+    {position: '97', name: 'Pasta Mista alla Panna', price: '7,00', info: 'verschiedene Nudeln mit Erbsen, Champignons und Sahnesauce' , nutrient: 'A, D', allergen: '2'},
+    {position: '98', name: 'Pasta Mista al Forno', price: '7,00', info: 'verschiedene Nudeln mit Erbsen, Champignons, Tomatensauce und Käse" überbacken' , nutrient: 'A, D', allergen: '1, 2'},
+    {position: '98a', name: 'Verschiedene Nudeln', price: '7,00', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '2, 1'},
+  ];
+  tagliatelle = [
+    {position: '99', name: 'Tagliatelle alla Bolognese', price: '6,00', info: 'mit Hackfleischsauce' , nutrient: 'A'},
+    {position: '99a', name: 'Tagliatelle Frontera', price: '7,00', info: 'mit Formfleisch-Vorderschinken, Salami, Champignons, Hackfleischsauce und Käse überbacken' , nutrient: 'A, D',  allergen: '1, 2, 5'},
+    {position: '100', name: 'Tagliatelle Mozzarella al Forno', price: '6,50', info: 'mit Tomatensauce und Mozzarella überbacken' , nutrient: 'A, D'},
+    {position: '101', name: 'Tagliatelle alla Chef', price: '6,50', info: 'mit Formfleisch-Vorderschinken Erbsen und Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
+    {position: '102', name: 'Tagliatelle Don Alfredo', price: '7,00', info: 'mit Champignons, Zwiebeln, Crevetten, Formfleisch-Vorderschinkenchinken Knoblauch und Tomaten-Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
+    {position: '103', name: 'Tagliatelle Paglia e Forno a. Chef', price: '6,50', info: 'grüne und weiße Bandnudeln mit Formfleisch-Vorderschinken, Champignons und Sahnesauce' , nutrient: 'A, D',  allergen: '2, 5'},
+    {position: '104', name: 'Lasagne', price: '6,50', info: '' , nutrient: 'A'},
+    {position: '105', name: 'Tagliatelle alla Salmone', price: '7,00', info: 'mit Lachs und Sahnesauce' , nutrient: 'A, C, D'},
+  ];
+  pasta_chicken = [
+    {position: 'H01', name: 'Spaghetti Chicken', price: '7,50', info: 'mit Hähnchenbrust, Champignons, Zwiebeln und Tomatensauce' , nutrient: 'A'},
+    {position: 'H02', name: 'Spaghetti Chicken Spezial', price: '7,50', info: 'mit Hähnchenbrust, Champignons und Sahnesauce' , nutrient: 'A, D'},
+    {position: 'H03', name: 'Makkaroni Chicken', price: '7,50', info: 'mit Hähnchenbrust, Zwiebeln, Tomatensauce und Käse überbacken' , nutrient: 'A, 1, D'},
+    {position: 'H04', name: 'Makkaroni Chicken Spezial', price: '7,50', info: 'mit Hähnchenbrust, Broccoli, Rahmsauce und Käse überbacken' , nutrient: 'A, 1, D'},
+    {position: 'H05', name: 'Tagliatelle Chicken', price: '7,50', info: 'mit Hähnchenbrust, Champignons, Tomatensauce und Käse überbacken' , nutrient: 'A, 1, D'},
+  ];
+  baguette = [
+    {position: '109', name: 'Sonja', price: '5,00', info: 'mit Thunfisch und Ei' , nutrient: 'A, B, C'},
+    {position: '111', name: 'Miriam', price: '5,00', info: 'mit Formfleisch-Vorderschinken und Tomaten' , nutrient: 'A', allergen: '2, 5'},
+    {position: '115', name: 'Sarah', price: '5,00', info: 'mit Salami, Tomaten und Ei' , nutrient: 'A, B', allergen: '1, 2, 5'},
+    {position: '116', name: 'Spezial', price: '5,00', info: 'mit Formfleisch-Vorderschinken oder Salami, Thunfisch und Ei' , nutrient: 'A, B, C', allergen: '1, 2, 5'},
+    {position: '118', name: 'Rustica', price: '6,00', info: 'mit Schweinefleisch und Zwiebeln' , nutrient: 'A'},
+    {position: '118a', name: 'Pollo', price: '6,00', info: 'mit Hähnchenfleisch' , nutrient: 'A'},
+  ];
+  pork_schnitzel = [
+    {position: '120', name: 'Schnitzel Milanese', price: '8,50', info: 'paniertes Schnitzel' , nutrient: 'A'},
+  ];
+  chicken_schnitzel = [
+    {position: '176', name: 'Hähnchenbrustfilet', price: '8,00', info: 'paniert mit Jägersauce' , nutrient: 'A, E, H', allergen: '1, 2, 7'},
+  ];
+  finger_food = [
+    {position: '143a', name: 'Chicken Nuggets', price: '5,50', info: '10 Stück mit Pommes' , nutrient: 'A'},
+    {position: '143b', name: 'Chicken Wings', price: '5,00', info: '6 Stück' , nutrient: ''},
+    {position: '144', name: 'Onion Rings', price: '5,00', info: '6 Stück' , nutrient: 'A'},
+    {position: '145', name: 'Mozzarella Sticks', price: '5,00', info: '6 Stück' , nutrient: 'A, D'},
+    {position: '146', name: 'Red Hot Chili Peppers', price: '5,00', info: '6 Stück mit scharfen Jalapeno Chilischoten' , nutrient: 'A', allergen: '4'},
+  ];
+  wraps = [
+    {position: '153', name: 'Wrap', price: '4,50', info: 'mit Tunfisch' , nutrient: 'A, C'},
+    {position: '154', name: 'Wrap', price: '4,50', info: 'mit Hähnchen' , nutrient: 'A'},
+    {position: '155', name: 'Wrap', price: '4,50', info: 'mit Tomaten und Mozzarella' , nutrient: 'A, D'},
+  ];
+  indian = [
+    {position: '160a', name: 'Chili Paneer', price: '9,50', info: 'mit Paprika, Zwiebeln, Curry, hausgemachtem Käse, Ingwer und Knoblauch (scharf)' , nutrient: 'D'},
+    {position: '161', name: 'Soja Curry', price: '9,00', info: 'Sojabohnen-Bällchen mit Kartoffeln und Currysauce' , nutrient: ''},
+    {position: '164', name: 'Vegetable Biryani', price: '9,00', info: 'Reis mit verschiedenem Gemüse' , nutrient: ''},
+    {position: '164a', name: 'Shahi Chane', price: '9,50', info: 'hausgemachter Käse mit Ingwer, Joghurt und Knoblauch (pikant gewürzt)' , nutrient: 'D'},
+    {position: '177', name: 'Chicken Curry', price: '9,50', info: 'Hühnerfleisch in feiner Currysauce' , nutrient: ''},
+    {position: '178', name: 'Indischer Korma', price: '9,50', info: 'Hühnerfleisch mit Curry und Kokus-Sauce' , nutrient: ''},
+    {position: '179', name: 'Chicken Punjab Spezial', price: '9,00', info: 'Hühnerfleisch mit Zwiebeln, Knoblauch, Ingwer, Chili, Tomatensauce (scharf)' , nutrient: ''},
+    {position: '181', name: 'Chicken Biryani', price: '10,00', info: 'Hähnchenfleisch mit gemischtem Gemüse' , nutrient: ''},
+  ];
+  side_dishes = [
+    {position: '', name: 'Pommes', price: '2,50', info: '' , nutrient: ''},
+    {position: '', name: 'Kroketten', price: '2,50', info: '' , nutrient: ''},
+    {position: '', name: 'Salat-Mayonnaise, Ketchup', price: '0,50', info: '' , nutrient: ''},
+    {position: '', name: 'Tzatziki', price: '1,00', info: '' , nutrient: ''},
+  ];
+  pizza_bun = [
+    {position: 'O6', name: 'gefüllte Pizzabrötchen', price: '4,50', info: 'mit Tunfisch' , nutrient: 'A, C'},
+    {position: 'O7', name: 'gefüllte Pizzabrötchen', price: '4,50', info: 'mit Spinat' , nutrient: 'A'},
+    {position: 'O8', name: 'gefüllte Pizzabrötchen', price: '4,50', info: 'mit Formfleisch-Vorderschinken und Ananas' , nutrient: 'A', allergen: '2, 5'},
+    {position: 'O9', name: 'gefüllte Pizzabrötchen', price: '5,00', info: 'mit Gyros' , nutrient: 'A, H, I'},
+    {position: 'O10', name: 'Pizzabrötchen', price: '2,00', info: '6 Stück mit hausgemachter Kräutercreme' , nutrient: 'A'},
+    {position: 'O11', name: 'Knoblauchbrot', price: '2,00', info: 'mit Kräutercreme' , nutrient: 'A'},
+    {position: 'O12', name: 'Naan', price: '2,00', info: 'indisches Brot' , nutrient: 'A'},
+    {position: '', name: 'Kräutercreme extra', price: '1,00', info: '' , nutrient: ''}
+  ];
+  drinks = [
+    {position: '', name: 'Cola, Fanta', price: '2,50', info: '1l Flasche' , nutrient: '', allergen: '1, 5, 9'},
+    {position: '', name: 'Cola, Fanta', price: '1,50', info: '0.33l Flasche' , nutrient: '', allergen: '1, 5, 9'},
+    {position: '', name: 'Mineralwasser', price: '1,50', info: '0.75l Flasche' , nutrient: ''},
+    {position: '', name: 'Pils', price: '2,00', info: '0.5l Flasche' , nutrient: 'A'},
+    {position: '', name: 'Lambrusco', price: '5,00', info: '0.75l Flasche' , nutrient: 'A'},
+  ];
+
+
 
   menuCategories: MenuCategory[] = [
     {
       name: 'Pizza',
       items: this.pizzas.map(pizza => ({
-        number: parseInt(pizza.position),
+        number: pizza.position,
         name: pizza.name,
         description: pizza.info,
         sizes: [
@@ -117,7 +230,7 @@ export class MenuComponent {
     {
       name: 'Salate',
       items: this.salads.map(salad => ({
-        number: parseInt(salad.position),
+        number: salad.position,
         name: salad.name,
         description: salad.info,
         sizes: [
@@ -127,8 +240,191 @@ export class MenuComponent {
         allergens: salad.allergen,
     })),
   },
-    
-
-      
+  {
+    name: 'Antipasta',
+    items: this.antipasta.map(antipasta => ({
+      number: antipasta.position,
+      name: antipasta.name,
+      description: antipasta.info,
+      sizes: [
+        { name: 'normal', price: `€${antipasta.price.replace(',', '.')}` }
+      ],
+      nutrients: antipasta.nutrient,
+      allergens: antipasta.allergen,
+  })),
+  },
+  {
+    name: 'Spaghetti',
+    items: this.spaghetti.map(spaghetti => ({
+      number: spaghetti.position,
+      name: spaghetti.name,
+      description: spaghetti.info,
+      sizes: [
+        { name: 'normal', price: `€${spaghetti.price.replace(',', '.')}` }
+      ],
+      nutrients: spaghetti.nutrient,
+      allergens: spaghetti.allergen,
+  })),
+  },
+  {
+    name: 'Makkaroni',
+    items: this.maccheroni.map(maccheroni => ({
+      number: parseInt(maccheroni.position),
+      name: maccheroni.name,
+      description: maccheroni.info,
+      sizes: [
+        { name: 'normal', price: `€${maccheroni.price.replace(',', '.')}` }
+      ],
+      nutrients: maccheroni.nutrient,
+      allergens: maccheroni.allergen,
+  })),
+  },
+  {
+    name: 'Tortellini',
+    items: this.torrellini.map(torrellini => ({
+      number: parseInt(torrellini.position),
+      name: torrellini.name,
+      description: torrellini.info,
+      sizes: [
+        { name: 'normal', price: `€${torrellini.price.replace(',', '.')}` }
+      ],
+      nutrients: torrellini.nutrient,
+      allergens: torrellini.allergen,
+  })),
+  },
+  {
+    name: 'Tagliatelle',
+    items: this.tagliatelle.map(tagliatelle => ({
+      number: tagliatelle.position,
+      name: tagliatelle.name,
+      description: tagliatelle.info,
+      sizes: [
+        { name: 'normal', price: `€${tagliatelle.price.replace(',', '.')}` }
+      ],
+      nutrients: tagliatelle.nutrient,
+      allergens: tagliatelle.allergen,
+  })),
+  },
+  {
+    name: 'Nudelgerichte mit Hähnchenfleisch',
+    items: this.pasta_chicken.map(pasta_chicken => ({
+      number: pasta_chicken.position,
+      name: pasta_chicken.name,
+      description: pasta_chicken.info,
+      sizes: [
+        { name: 'normal', price: `€${pasta_chicken.price.replace(',', '.')}` }
+      ],
+      nutrients: pasta_chicken.nutrient,
+  })),
+  },
+  {
+    name: 'Baguettes',
+    items: this.baguette.map(baguette => ({
+      number: baguette.position,
+      name: baguette.name,
+      description: baguette.info,
+      sizes: [
+        { name: 'normal', price: `€${baguette.price.replace(',', '.')}` }
+      ],
+      nutrients: baguette.nutrient,
+      allergens: baguette.allergen,
+  })),
+  },
+  {
+    name: 'Schweineschnitzel',
+    items: this.pork_schnitzel.map(schnitzel => ({
+      number: schnitzel.position,
+      name: schnitzel.name,
+      description: schnitzel.info,
+      sizes: [
+        { name: 'normal', price: `€${schnitzel.price.replace(',', '.')}` }
+      ],
+      nutrients: schnitzel.nutrient,
+  })),
+  },
+  {
+    name: 'Hähnchenbrustfilet',
+    items: this.chicken_schnitzel.map(chicken_breast => ({
+      number: chicken_breast.position,
+      name: chicken_breast.name,
+      description: chicken_breast.info,
+      sizes: [
+        { name: 'normal', price: `€${chicken_breast.price.replace(',', '.')}` }
+      ],
+      nutrients: chicken_breast.nutrient,
+  })),
+  },
+  {
+    name: 'Fingerfood',
+    items: this.finger_food.map(finger_food => ({
+      number: finger_food.position,
+      name: finger_food.name,
+      description: finger_food.info,
+      sizes: [
+        { name: 'normal', price: `€${finger_food.price.replace(',', '.')}` }
+      ],
+      nutrients: finger_food.nutrient,
+  })),
+  },
+  {
+    name: 'Wraps',
+    items: this.wraps.map(wraps => ({
+      number: wraps.position,
+      name: wraps.name,
+      description: wraps.info,
+      sizes: [
+        { name: 'normal', price: `€${wraps.price.replace(',', '.')}` }
+      ],
+      nutrients: wraps.nutrient,
+  })),
+  },
+  {
+    name: 'Indische Spezialitäten',
+    items: this.indian.map(indian => ({
+      number: indian.position,
+      name: indian.name,
+      description: indian.info,
+      sizes: [
+        { name: 'normal', price: `€${indian.price.replace(',', '.')}` }
+      ],
+      nutrients: indian.nutrient,
+  })),
+  },
+  {
+    name: 'Imbiss',
+    items: this.side_dishes.map(side_dishes => ({
+      number: side_dishes.position,
+      name: side_dishes.name,
+      description: side_dishes.info,
+      sizes: [
+        { name: 'normal', price: `€${side_dishes.price.replace(',', '.')}` }
+      ],
+      nutrients: side_dishes.nutrient,
+  })),
+  },
+  {
+    name: 'Pizzabrötchen und Brot',
+    items: this.pizza_bun.map(pizza_bun => ({
+      number: pizza_bun.position,
+      name: pizza_bun.name,
+      description: pizza_bun.info,
+      sizes: [
+        { name: 'normal', price: `€${pizza_bun.price.replace(',', '.')}` }
+      ],
+      nutrients: pizza_bun.nutrient,
+  })),
+  },
+  {
+    name: 'Getränke',
+    items: this.drinks.map(drinks => ({
+      number: drinks.position,
+      name: drinks.name,
+      description: drinks.info,
+      sizes: [
+        { name: 'normal', price: `€${drinks.price.replace(',', '.')}` }
+      ],
+      nutrients: drinks.nutrient,
+  })),
+  }
   ];
 }
