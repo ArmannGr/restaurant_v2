@@ -1,4 +1,3 @@
-<div class="container">
   <div class="menu">
     <h1>Speisekarte</h1>
     <div class="menu-category" *ngFor="let category of menuCategories">
@@ -9,18 +8,44 @@
       <div *ngIf="category.name === 'Salate'" class="description">
         <p>Zu jedem Salat erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
       </div>
+      <div *ngIf="category.name === 'Spaghetti'" class="description">
+        <p>Zu jedem Nudelgericht erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
+      </div>
+      <div *ngIf="category.name === 'Baguettes'" class="description">
+        <p>Alle Baguettes mit Salat, Remulade<sup>B,E</sup> mit Käse<sup>1,D</sup></p>
+      </div>
+      <div *ngIf="category.name === 'Schweineschnitzel'" class="description">
+        <p>mit Pommes oder Kroketten</p>
+      </div>
+      <div *ngIf="category.name === 'Indische Spezialitäten'" class="description">
+        <p>mit Basmati Reis oder indisches Brot (Naan)<br>
+          Alle Gerichte werden auf Wunsch mild, mittelscharf oder scharf zubereitet</p>
+      </div>
+      <div *ngIf="category.name === 'Pizzabrötchen und Brot'" class="description">
+        Alle gefüllten Pizzabrötchen mit Käse<sup>1,D</sup> und Tomatensauce
+      </div>
       <div class="menu-item" *ngFor="let item of category.items">
         <div class="menu-item-details">
           <div class="menu-item-text">
-            <h3>{{ item.number }}. {{ item.name }}</h3>
-            <p>{{ item.description }}</p>
-            <div class="allergenDistance">
-              <h6 class="nutrient" *ngIf=item.nutrients>Allergene: {{item.nutrients}}</h6>
-              <h6 style="color: #2c2c2c;"></h6>
+            <div class="menu-item-name-number">
+            <h3 *ngIf=item.number>{{ item.number }}. </h3>
+            <div class="menu-item-name" *ngIf=item.number>
+              <h3>{{ item.name }}</h3>
             </div>
-            <div class="nutrientDistance">
-              <h6 *ngIf=item.allergens class="nutrient">Zusatzstoffe: {{item.allergens}}</h6>
-              <h6 style="color: #2c2c2c;"></h6>
+            <div *ngIf=!item.number>
+              <h3>{{ item.name }}</h3>
+            </div>
+            </div>
+            <div class="menu-item-description">
+              <p>{{ item.description }}</p>
+              <div class="allergenDistance">
+                <h6 class="nutrient" *ngIf=item.nutrients>Allergene: {{item.nutrients}}</h6>
+                <h6 style="color: #2c2c2c;"></h6>
+              </div>
+              <div class="nutrientDistance">
+                <h6 *ngIf=item.allergens class="nutrient">Zusatzstoffe: {{item.allergens}}</h6>
+                <h6 style="color: #2c2c2c;"></h6>
+              </div>
             </div>
           </div>
           <div class="menu-item-prices">

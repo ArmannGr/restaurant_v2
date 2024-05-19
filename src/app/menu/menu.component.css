@@ -1,5 +1,5 @@
 .menu {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #1a1a1a;
@@ -11,10 +11,6 @@
 
 .menub{
   margin-top: 20px;
-}
-
-.container {
-  background-color: #2c2c2c;
 }
 
 .menu h1, .menu h2, .menu h3, .menu p {
@@ -31,6 +27,8 @@
 
 .menu-category {
   margin-bottom: 30px;
+  min-width: 75%;
+  max-width: 75%;
 }
 
 .menu-item {
@@ -40,6 +38,15 @@
   padding: 15px;
   background-color: #2c2c2c;
   border-radius: 8px;
+}
+
+.menu-item-name-number{
+  display: flex;
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+.menu-item-name{
+  margin: 0 5px;
 }
 
 .menu-item-details {
@@ -76,13 +83,13 @@
 
 .allergenDistance {
   display: flex;
-  margin-top: -30px;
-  margin-bottom: -50px;
+  margin-top: -25px;
+  margin-bottom: -45px;
 }
 
 .nutrientDistance {
   display: flex;
-  margin-bottom: -20px;
+  margin-bottom: -15px;
 }
 
 .menu-item-info strong {
