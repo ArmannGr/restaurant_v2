@@ -22,11 +22,13 @@ jobs:
       run: npm ci
 
     - name: Build Angular project
-      run: npm run build -- --output-path=dist
+      run: npm run build -- --output-path=dist/restaurant_v2
+
+    - name: List dist directory contents
+      run: ls -la dist/restaurant_v2
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-
+        publish_dir: ./dist/restaurant_v2
