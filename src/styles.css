@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Apply Helvetica font globally */
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Optional: Reset or normalize styles for consistency across browsers */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  /* Additional global styles */
+  
