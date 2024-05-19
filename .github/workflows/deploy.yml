@@ -41,3 +41,8 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist/restaurant_v2
+
+    - name: List gh-pages branch contents
+      run: |
+        git clone --branch gh-pages https://github.com/${{ github.repository }} gh-pages-branch
+        ls -la gh-pages-branch
