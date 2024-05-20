@@ -19,6 +19,10 @@ nav {
   padding: 20px 50px;
   color: white;
   margin-bottom: 30px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav .logo {
