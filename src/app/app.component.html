@@ -8,10 +8,12 @@
     </button>
     <ul [class.active]="menuActive">
       <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/menu" (click)="closeMenu()">Speisekarte</a></li>
+      <!--
       <li><a routerLink="/about" (click)="closeMenu()">About Us</a></li>
-      <li><a routerLink="/menu" (click)="closeMenu()">Menu</a></li>
       <li><a routerLink="/gallery" (click)="closeMenu()">Gallery</a></li>
       <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+      -->
     </ul>
   </nav>
 <router-outlet></router-outlet>
