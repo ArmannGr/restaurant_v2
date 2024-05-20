@@ -13,6 +13,7 @@ interface MenuItem {
 interface MenuCategory {
   name: string;
   items: MenuItem[];
+  toggle?: boolean;
 }
 
 @Component({
@@ -226,6 +227,7 @@ export class MenuComponent {
         nutrients: pizza.nutrient,
         allergens: pizza.allergen,
       })),
+      toggle: false
     },
     {
       name: 'Salate',
@@ -238,6 +240,7 @@ export class MenuComponent {
         ],
         nutrients: salad.nutrient,
         allergens: salad.allergen,
+        toggle: false
     })),
   },
   {
@@ -251,6 +254,7 @@ export class MenuComponent {
       ],
       nutrients: antipasta.nutrient,
       allergens: antipasta.allergen,
+      toggle: false
   })),
   },
   {
@@ -264,6 +268,7 @@ export class MenuComponent {
       ],
       nutrients: spaghetti.nutrient,
       allergens: spaghetti.allergen,
+      toggle: false
   })),
   },
   {
@@ -277,6 +282,7 @@ export class MenuComponent {
       ],
       nutrients: maccheroni.nutrient,
       allergens: maccheroni.allergen,
+      toggle: false
   })),
   },
   {
@@ -290,6 +296,7 @@ export class MenuComponent {
       ],
       nutrients: torrellini.nutrient,
       allergens: torrellini.allergen,
+      toggle: false
   })),
   },
   {
@@ -303,6 +310,7 @@ export class MenuComponent {
       ],
       nutrients: tagliatelle.nutrient,
       allergens: tagliatelle.allergen,
+      toggle: false
   })),
   },
   {
@@ -315,6 +323,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${pasta_chicken.price.replace(',', '.')}` }
       ],
       nutrients: pasta_chicken.nutrient,
+      toggle: false
   })),
   },
   {
@@ -328,6 +337,7 @@ export class MenuComponent {
       ],
       nutrients: baguette.nutrient,
       allergens: baguette.allergen,
+      toggle: false
   })),
   },
   {
@@ -340,6 +350,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${schnitzel.price.replace(',', '.')}` }
       ],
       nutrients: schnitzel.nutrient,
+      toggle: false
   })),
   },
   {
@@ -352,6 +363,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${chicken_breast.price.replace(',', '.')}` }
       ],
       nutrients: chicken_breast.nutrient,
+      toggle: false
   })),
   },
   {
@@ -364,6 +376,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${finger_food.price.replace(',', '.')}` }
       ],
       nutrients: finger_food.nutrient,
+      toggle: false
   })),
   },
   {
@@ -376,6 +389,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${wraps.price.replace(',', '.')}` }
       ],
       nutrients: wraps.nutrient,
+      toggle: false
   })),
   },
   {
@@ -388,6 +402,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${indian.price.replace(',', '.')}` }
       ],
       nutrients: indian.nutrient,
+      toggle: false
   })),
   },
   {
@@ -400,6 +415,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${side_dishes.price.replace(',', '.')}` }
       ],
       nutrients: side_dishes.nutrient,
+      toggle: false
   })),
   },
   {
@@ -412,6 +428,7 @@ export class MenuComponent {
         { name: 'normal', price: `€${pizza_bun.price.replace(',', '.')}` }
       ],
       nutrients: pizza_bun.nutrient,
+      toggle: false
   })),
   },
   {
@@ -424,7 +441,16 @@ export class MenuComponent {
         { name: 'normal', price: `€${drinks.price.replace(',', '.')}` }
       ],
       nutrients: drinks.nutrient,
+      toggle: false
   })),
   }
   ];
+
+  togglePanel(type: string) {
+    this.menuCategories.forEach(category => {
+      if (category.name === type) {
+        category.toggle = !category.toggle;
+      }
+    });
+  }
 }
