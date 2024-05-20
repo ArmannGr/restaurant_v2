@@ -3,9 +3,9 @@
     <div class="menu-category" *ngFor="let category of menuCategories">
       <mat-accordion>
         <mat-expansion-panel>
-          <mat-expansion-panel-header>
+          <mat-expansion-panel-header class="specific-class">
             <mat-panel-title>
-              <h2>{{ category.name }}</h2>
+              {{ category.name }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       <div *ngIf="category.name === 'Pizza'" class="description">
