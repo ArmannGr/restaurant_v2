@@ -1,73 +1,87 @@
-  <div class="menu">
-    <h1>Speisekarte</h1>
-    <div class="menu-category" *ngFor="let category of menuCategories">
-      <mat-accordion>
-        <mat-expansion-panel [expanded]=category.toggle>
-          <mat-expansion-panel-header class="specific-class" (click)="togglePanel(category.name)">
-            <mat-panel-title>
-              {{ category.name }}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-            <div (click)="togglePanel(category.name)">
-              <div *ngIf="category.name === 'Pizza'" class="description">
-                <p>Alle Pizzen mit Tomatensauce, Käse<sup>1,D</sup> und Oregano</p>
-              </div>
-              <div *ngIf="category.name === 'Salate'" class="description">
-                <p>Zu jedem Salat erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
-              </div>
-              <div *ngIf="category.name === 'Spaghetti'" class="description">
-                <p>Zu jedem Nudelgericht erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
-              </div>
-              <div *ngIf="category.name === 'Baguettes'" class="description">
-                <p>Alle Baguettes mit Salat, Remulade<sup>B,E</sup> mit Käse<sup>1,D</sup></p>
-              </div>
-              <div *ngIf="category.name === 'Schweineschnitzel'" class="description">
-                <p>mit Pommes oder Kroketten</p>
-              </div>
-              <div *ngIf="category.name === 'Indische Spezialitäten'" class="description">
-                <p>mit Basmati Reis oder indisches Brot (Naan)<br>
-                  Alle Gerichte werden auf Wunsch mild, mittelscharf oder scharf zubereitet</p>
-              </div>
-              <div *ngIf="category.name === 'Pizzabrötchen und Brot'" class="description">
-                Alle gefüllten Pizzabrötchen mit Käse<sup>1,D</sup> und Tomatensauce
-              </div>
-              <div class="menu-item" *ngFor="let item of category.items">
-                <div class="menu-item-details">
-                  <div class="menu-item-text">
-                    <div class="menu-item-name-number">
-                    <h3 *ngIf=item.number>{{ item.number }}. </h3>
-                    <div class="menu-item-name" *ngIf=item.number>
-                      <h3>{{ item.name }}</h3>
+<div class="menu">
+  <h1>Speisekarte</h1>
+  <div class="menu-category" *ngFor="let category of menuCategories">
+    <mat-accordion>
+      <mat-expansion-panel [expanded]=category.toggle>
+        <mat-expansion-panel-header class="specific-class" (click)="togglePanel(category.name)">
+          <mat-panel-title>
+            {{ category.name }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+          <div (click)="togglePanel(category.name)">
+            <div *ngIf="category.name === 'Pizza'" class="description">
+              <p>Alle Pizzen mit Tomatensauce, Käse<sup>1,D</sup> und Oregano</p>
+            </div>
+            <div *ngIf="category.name === 'Salate'" class="description">
+              <p>Zu jedem Salat erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
+            </div>
+            <div *ngIf="category.name === 'Spaghetti'" class="description">
+              <p>Zu jedem Nudelgericht erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme</p>
+            </div>
+            <div *ngIf="category.name === 'Baguettes'" class="description">
+              <p>Alle Baguettes mit Salat, Remulade<sup>B,E</sup> mit Käse<sup>1,D</sup></p>
+            </div>
+            <div *ngIf="category.name === 'Schweineschnitzel'" class="description">
+              <p>mit Pommes oder Kroketten</p>
+            </div>
+            <div *ngIf="category.name === 'Indische Spezialitäten'" class="description">
+              <p>mit Basmati Reis oder indisches Brot (Naan)<br>
+                Alle Gerichte werden auf Wunsch mild, mittelscharf oder scharf zubereitet</p>
+            </div>
+            <div *ngIf="category.name === 'Pizzabrötchen und Brot'" class="description">
+              Alle gefüllten Pizzabrötchen mit Käse<sup>1,D</sup> und Tomatensauce
+            </div>
+            <div class="menu-item" *ngFor="let item of category.items">
+              <div class="menu-item-details">
+                <div class="menu-item-text">
+                  <div class="menu-item-name-number">
+                  <h3 *ngIf=item.number>{{ item.number }}. </h3>
+                  <div class="menu-item-name" *ngIf=item.number>
+                    <h3>{{ item.name }}</h3>
+                  </div>
+                  <div *ngIf=!item.number>
+                    <h3>{{ item.name }}</h3>
+                  </div>
+                  </div>
+                  <div class="menu-item-description">
+                    <p>{{ item.description }}</p>
+                    <div class="allergenDistance">
+                      <h6 class="nutrient" *ngIf=item.nutrients>Allergene: {{item.nutrients}}</h6>
+                      <h6 style="color: #2c2c2c;"></h6>
                     </div>
-                    <div *ngIf=!item.number>
-                      <h3>{{ item.name }}</h3>
-                    </div>
-                    </div>
-                    <div class="menu-item-description">
-                      <p>{{ item.description }}</p>
-                      <div class="allergenDistance">
-                        <h6 class="nutrient" *ngIf=item.nutrients>Allergene: {{item.nutrients}}</h6>
-                        <h6 style="color: #2c2c2c;"></h6>
-                      </div>
-                      <div class="nutrientDistance">
-                        <h6 *ngIf=item.allergens class="nutrient">Zusatzstoffe: {{item.allergens}}</h6>
-                        <h6 style="color: #2c2c2c;"></h6>
-                      </div>
+                    <div class="nutrientDistance">
+                      <h6 *ngIf=item.allergens class="nutrient">Zusatzstoffe: {{item.allergens}}</h6>
+                      <h6 style="color: #2c2c2c;"></h6>
                     </div>
                   </div>
-                  <div class="menu-item-prices">
-                    <div *ngIf="item.sizes">
-                      <div class="menu-size" *ngFor="let size of item.sizes">
-                        <p *ngIf="size.name != 'normal'">{{ size.name }}: {{ size.price }}</p>
-                        <p *ngIf="size.name === 'normal'">{{ size.price }}</p>
-                      </div>
+                </div>
+                <div class="menu-item-prices">
+                  <div *ngIf="item.sizes">
+                    <div class="menu-size" *ngFor="let size of item.sizes">
+                      <p *ngIf="size.name != 'normal'">{{ size.name }}: {{ size.price }}</p>
+                      <p *ngIf="size.name === 'normal'">{{ size.price }}</p>
                     </div>
-                    <p *ngIf="item.price">{{ item.price }}</p>
                   </div>
+                  <p *ngIf="item.price">{{ item.price }}</p>
                 </div>
               </div>
             </div>
-        </mat-expansion-panel>
-      </mat-accordion>
+          </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="menu-category">
+    <div class="allergenes">
+      <h3 style="color: #ffb84d;">Allergene und Zusatzstoffe</h3>
+      <p>
+          Zusatzstoffe: 1= mit Farbstoff, 2= mit Konservierungsstoff, 3= mit Geschmacksverstärker, 4= mit Phosphat,
+          5= mit Antioxidationsmittel, 6= geschwärzt, 7= mit Süßungsmittel, 8= enthält eine Phenylalaninquelle,
+          9= koffeinhaltig
+      </p>
+      <p>
+          Allergene: A= glutenhaltiges Getreide, B= Eier, C= Fisch, D= Milch,
+          E= Senf, F= Krebstiere, G= Weichtiere, H= Sellerie, I= Soja
+      </p>
     </div>
   </div>
+</div>

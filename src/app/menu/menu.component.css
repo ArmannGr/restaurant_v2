@@ -165,3 +165,9 @@ mat-panel-title {
     margin: 0 10px 0 0; /* Add margin between prices */
   }
 }
+
+.allergenes {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 5%;
+}

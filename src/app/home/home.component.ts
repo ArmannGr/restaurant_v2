@@ -8,17 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   reviews = [
     {
-      author_name: 'Veselin Kolev',
+      author_name: 'Veselin',
       text: 'Super Essen! Die Besitzer sind super freundlich und gehen auf jeden Kundenwunsch ein. Die Portionen sind perfekt. ...',
       rating: '5/5'
     },
     {
-      author_name: 'Stefan Sobolewski',
+      author_name: 'Stefan',
       text: 'Auch wenn es recht unscheinbar wirkt, das Essen ist sehr zu empfehlen. Indisch  authentisch gegessen, gute Schärfe, sehr gute Beilagen. ...',
       rating: '5/5'
     },
     {
-      author_name: 'Thomas Imhof',
+      author_name: 'Thomas',
       text: 'Erst etwas skeptisch, da der Italiener doch recht nach Indien aussieht. Aber Pizza war gut. ...',
       rating: '4/5'
     }
