@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 interface MenuItem {
-  number?: number | string;
+  number?: string;
   name: string;
   description: string;
   price?: string;
@@ -275,7 +275,7 @@ export class MenuComponent {
   {
     name: 'Makkaroni',
     items: this.maccheroni.map(maccheroni => ({
-      number: parseInt(maccheroni.position),
+      number: maccheroni.position,
       name: maccheroni.name,
       description: maccheroni.info,
       sizes: [
@@ -289,7 +289,7 @@ export class MenuComponent {
   {
     name: 'Tortellini',
     items: this.torrellini.map(torrellini => ({
-      number: parseInt(torrellini.position),
+      number: torrellini.position,
       name: torrellini.name,
       description: torrellini.info,
       sizes: [
