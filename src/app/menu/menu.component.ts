@@ -114,23 +114,22 @@ export class MenuComponent {
     {position: '83', name: 'Spaghetti Frutti di Mare', price: '8,00', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
   ];
   maccheroni = [
-    {position: '84', name: 'Makkaroni Bolognese', price: '7,00', info: 'mit Tomatensauce' , nutrient: 'A'},
-    {position: '84a', name: 'Makkaroni Bolognese al Forno', price: '7,50', info: 'mit Hackfleischsauce' , nutrient: 'A'},
-    {position: '84b', name: 'Makkaroni Carbonara', price: '7,00', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
-    {position: '84c', name: 'Makkaroni Broccoli al Forno', price: '8,00', info: 'mit Broccoli, scharfen Peperoni, Knoblauch, Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
-    {position: '85', name: 'Makkaroni Con Mozzarella al Forno', price: '8,50', info: 'mit Crevetten, Knoblauch und Tomatensauce' , nutrient: 'A, F'},
-    {position: '86', name: 'Makkaroni Quattro Formaggi', price: '8,00', info: 'mit Formfleisch-Vorderschinken, Paprika, Crevetten und Tomatensauce' , nutrient: 'A, F', allergen: '2, 5'},
-    {position: '87', name: 'Makkaroni Gratinati al Forno', price: '8,00', info: 'mit Formfleisch-Vorderschinken, Ei und Käse-Sahnesauce' , nutrient: 'A, B, D', allergen: '1, 2, 5'},
-    {position: '88', name: 'Makkaroni all Rudolfo', price: '8,00', info: 'mit Champignons, Formfleisch-Vorderschinken und Hackfleisch-Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
-    {position: '90', name: 'Makkaroni Spinaci', price: '8,50', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
-    {position: '90a', name: 'Makkaroni Spinaci e Salmone', price: '9,00', info: 'mit Meeresfrüchten, Knoblauch und Tomatensauce' , nutrient: 'A, F, G'},
+    {position: '84', name: 'Makkaroni Bolognese', price: '7,00', info: 'mit Hackfleischsauce' , nutrient: 'A'},
+    {position: '84a', name: 'Makkaroni Bolognese al Forno', price: '7,50', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A,D', allergen: '1'},
+    {position: '84b', name: 'Makkaroni Carbonara', price: '7,00', info: 'mit Formfleisch-Vorderschinken, Ei und Käse-Sahnesauce' , nutrient: 'A, B, D', allergen: '1, 2, 5'},
+    {position: '84c', name: 'Makkaroni Broccoli al Forno', price: '8,00', info: 'mit Broccoli, scharfe Peperoni, Knoblauch, Bolognesesauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '85', name: 'Makkaroni Con Mozzarella al Forno', price: '8,50', info: 'mit Tomatensauce und Mozzarella überbacken' , nutrient: 'A, D'},
+    {position: '86', name: 'Makkaroni Quattro Formaggi', price: '8,00', info: 'mit Gorgonzolasauce, Käse und Sahnesauce' , nutrient: 'A, D', allergen: '1'},
+    {position: '87', name: 'Makkaroni Gratinati al Forno', price: '8,00', info: 'mit Champignons, Formfleisch-Vorderschinken, Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '1, 2, 5'},
+    {position: '88', name: 'Makkaroni all Rudolfo', price: '8,00', info: 'mit Champignons, Formfleisch-Vorderschinken, Salami, Knoblauch, Tomatensauce und Käse überbacken' , nutrient: 'A, D', allergen: '1, 2, 5'},
+    {position: '90', name: 'Makkaroni Spinaci', price: '8,50', info: 'mit Spinat, Knoblauch, Sahnesauce und Käse überbacken' , nutrient: 'A, D', allergen: '1'},
+    {position: '90a', name: 'Makkaroni Spinaci e Salmone', price: '9,00', info: 'mit Spinat, Lachs, Knoblauch, Sahnesauce und Käse überbacken' , nutrient: 'A, C, D', allergen: '1'},
   ];
   torrellini = [
     {position: '92', name: 'Tortellini Bolognese', price: '7,50', info: 'mit Hackfleischsauce' , nutrient: 'A', allergen: '2'},
     {position: '93', name: 'Tortellini alla Chef', price: '7,50', info: 'mit Formfleisch-Vorderschinken und Sahnesauce' , nutrient: 'A, D', allergen: '2, 5'},
     {position: '95', name: 'Tortellini al Forno', price: '8,50', info: 'mit Formfleisch-Vorderschinken, Salami, Tomatensauce und Käse überbacken' , nutrient: 'A, D', allergen: '1, 2, 5'},
     {position: '96', name: 'Tortellini Quattro Formaggi', price: '8,50', info: 'mit Gorgonzola, Käse, Erbsen und Sahnesauce' , nutrient: 'A, D', allergen: '1, 2'},
-    {position: '97', name: 'Pasta Mista alla Panna', price: '8,00', info: 'verschiedene Nudeln mit Erbsen, Champignons und Sahnesauce' , nutrient: 'A, D', allergen: '2'},
     {position: '98', name: 'Pasta Mista al Forno', price: '8,00', info: 'verschiedene Nudeln mit Erbsen, Champignons, Tomatensauce und Käse" überbacken' , nutrient: 'A, D', allergen: '1, 2'},
     {position: '98a', name: 'Verschiedene Nudeln', price: '8,00', info: 'mit Hackfleischsauce und Käse überbacken' , nutrient: 'A, D', allergen: '2, 1'},
   ];
