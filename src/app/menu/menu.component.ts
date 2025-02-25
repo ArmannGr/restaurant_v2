@@ -340,6 +340,7 @@ export class MenuComponent {
       toggle: false
   })),
   },
+/*
   {
     name: 'Schweineschnitzel',
     items: this.pork_schnitzel.map(schnitzel => ({
@@ -353,7 +354,9 @@ export class MenuComponent {
       toggle: false
   })),
   },
-  {
+
+ */
+/*  {
     name: 'Hähnchenbrustfilet',
     items: this.chicken_schnitzel.map(chicken_breast => ({
       number: chicken_breast.position,
@@ -366,6 +369,7 @@ export class MenuComponent {
       toggle: false
   })),
   },
+ */
   {
     name: 'Fingerfood',
     items: this.finger_food.map(finger_food => ({
@@ -379,6 +383,7 @@ export class MenuComponent {
       toggle: false
   })),
   },
+/*
   {
     name: 'Wraps',
     items: this.wraps.map(wraps => ({
@@ -392,7 +397,8 @@ export class MenuComponent {
       toggle: false
   })),
   },
-  {
+ */
+  /*{
     name: 'Indische Spezialitäten',
     items: this.indian.map(indian => ({
       number: indian.position,
@@ -405,6 +411,7 @@ export class MenuComponent {
       toggle: false
   })),
   },
+   */
   {
     name: 'Imbiss',
     items: this.side_dishes.map(side_dishes => ({
