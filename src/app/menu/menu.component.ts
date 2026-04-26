@@ -214,19 +214,35 @@ export class MenuComponent {
   menuCategories: MenuCategory[] = [
     {
       name: 'Pizza',
-      items: this.pizzas.map(pizza => ({
-        number: pizza.position,
-        name: pizza.name,
-        description: pizza.info,
-        sizes: [
-          { name: 'Klein', price: `€${pizza.priceLittle.replace(',', '.')}` },
-          { name: 'Groß', price: `€${pizza.price.replace(',', '.')}` },
-          { name: 'Jumbo', price: `€${pizza.priceJumbo.replace(',', '.')}` },
-          { name: 'Blech', price: `€${pizza.priceBig.replace(',', '.')}` }
-        ],
-        nutrients: pizza.nutrient,
-        allergens: pizza.allergen,
-      })),
+      items: this.pizzas.map(pizza => {
+        // Check if it's a Calzone (only has priceLittle, other prices are empty)
+        const isCalzone = !pizza.price && !pizza.priceJumbo && !pizza.priceBig;
+        
+        if (isCalzone) {
+          return {
+            number: pizza.position,
+            name: pizza.name,
+            description: pizza.info,
+            price: `€${pizza.priceLittle.replace(',', '.')}`,
+            nutrients: pizza.nutrient,
+            allergens: pizza.allergen,
+          };
+        } else {
+          return {
+            number: pizza.position,
+            name: pizza.name,
+            description: pizza.info,
+            sizes: [
+              { name: 'Klein', price: `€${pizza.priceLittle.replace(',', '.')}` },
+              { name: 'Groß', price: `€${pizza.price.replace(',', '.')}` },
+              { name: 'Jumbo', price: `€${pizza.priceJumbo.replace(',', '.')}` },
+              { name: 'Blech', price: 'auf Anfrage' }
+            ],
+            nutrients: pizza.nutrient,
+            allergens: pizza.allergen,
+          };
+        }
+      }),
       toggle: false
     },
     {
@@ -453,6 +469,40 @@ export class MenuComponent {
   }
   ];
 
+  // Active category for navigation
+  activeCategory: string = 'Pizza';
+
+  // Select a category to display
+  selectCategory(categoryName: string): void {
+    this.activeCategory = categoryName;
+  }
+
+  // Get the currently active category
+  getActiveCategory(): MenuCategory | undefined {
+    const category = this.menuCategories.find(cat => cat.name === this.activeCategory);
+    if (!category && this.menuCategories.length > 0) {
+      // Fallback to first category if active category not found
+      this.activeCategory = this.menuCategories[0].name;
+      return this.menuCategories[0];
+    }
+    return category;
+  }
+
+  // Get category-specific description
+  getCategoryDescription(categoryName: string): string | null {
+    const descriptions: { [key: string]: string } = {
+      'Pizza': 'Alle Pizzen mit Tomatensauce, Käse<sup>1,D</sup> und Oregano',
+      'Salate': 'Zu jedem Salat erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme',
+      'Spaghetti': 'Zu jedem Nudelgericht erhalten Sie Pizzabrötchen<sup>A</sup> mit Kräutercreme',
+      'Baguettes': 'Alle Baguettes mit Salat, Remulade<sup>B,E</sup> mit Käse<sup>1,D</sup>',
+      'Schweineschnitzel': 'mit Pommes oder Kroketten',
+      'Indische Spezialitäten': 'mit Basmati Reis oder indisches Brot (Naan)<br>Alle Gerichte werden auf Wunsch mild, mittelscharf oder scharf zubereitet',
+      'Pizzabrötchen und Brot': 'Alle gefüllten Pizzabrötchen mit Käse<sup>1,D</sup> und Tomatensauce'
+    };
+    return descriptions[categoryName] || null;
+  }
+
+  // Legacy method - kept for backward compatibility but no longer used
   togglePanel(type: string) {
     this.menuCategories.forEach(category => {
       if (category.name === type) {
